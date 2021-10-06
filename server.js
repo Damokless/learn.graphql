@@ -41,12 +41,12 @@ const resolvers = {
     addUser: async (_, data) => {
       data.id = users.length + 1
       users.push(data)
-      fs.writeFileSync('./users.json', users)
+      //fs.writeFileSync('./users.json', users)
     },
     createPost: async (_, data) => {
       data.id = posts.length + 1
       posts.push(data)
-      fs.writeFileSync('./posts.json', posts)
+      //fs.writeFileSync('./posts.json', posts)
     },
   },
 };
