@@ -41,8 +41,6 @@ const resolvers = {
     addUser: async (_, data) => {
       data.id = users.length + 1
       users.push(data)
-      console.log(data)
-      console.log(users)
       fs.writeFileSync('./users.json', users)
     },
   },
