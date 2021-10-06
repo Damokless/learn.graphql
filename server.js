@@ -28,10 +28,10 @@ const typeDefs = gql`
   }
   type Mutation {
     addUser(email: String,password: String,firstname: String,lastname: String): User
+    createPost(author: String,comments: String,content: String, createdAt: String,updatedAt:String): Post
   }
 `;
-// Resolvers define the technique for fetching the types defined in the
-// schema. This resolver retrieves books from the "books" array above.
+
 const resolvers = {
   Query: {
     users: () => users,
@@ -42,6 +42,11 @@ const resolvers = {
       data.id = users.length + 1
       users.push(data)
       fs.writeFileSync('./users.json', users)
+    },
+    createPost: async (_, data) => {
+      data.id = posts.length + 1
+      posts.push(data)
+      fs.writeFileSync('./posts.json', posts)
     },
   },
 };
